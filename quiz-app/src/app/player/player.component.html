@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Player Dashboard</h1>
+  
+    <div *ngIf="!username">
+      <h2>Enter your username</h2>
+      <input type="text" [(ngModel)]="username" name="username">
+      <button class="btn btn-primary" (click)="setUsername()">Submit</button>
+    </div>
+  
+    <div *ngIf="username">
+      <h2>Welcome, {{ username }}!</h2>
+  
+      <div *ngIf="techStacks.length === 0">
+        <h3>Select a Tech Stack</h3>
+        <ul>
+          <li *ngFor="let techStack of techStacks">
+            <button class="btn btn-primary" (click)="selectTechStack(techStack)">{{ techStack.techStackName }}</button>
+          </li>
+        </ul>
+      </div>
+  
+      <div *ngIf="selectedTechStack && questions.length > 0">
+        <h3>{{ selectedTechStack.techStackName }} Quiz</h3>
+  
+        <div *ngIf="!quizCompleted">
+          <h4>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h4>
+          <p>{{ questions[currentQuestionIndex].question }}</p>
+  
+          <ul>
+            <li *ngFor="let option of questions[currentQuestionIndex].options">
+              <button class="btn btn-primary" (click)="answerQuestion(option)">{{ option }}</button>
+            </li>
+          </ul>
+        </div>
+  
+        <div *ngIf="quizCompleted">
+          <h4>Quiz Completed!</h4>
+          <p>Your Rank: {{ playerRank }}</p>
+          <!-- Display the player's rank here -->
+        </div>
+      </div>
+    </div>
+  
+    <button class="btn btn-primary" (click)="goToHome()">Back to Home</button>
+  </div>
+  

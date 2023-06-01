@@ -1,0 +1,137 @@
+<!-- <h1>Admin Dashboard</h1>
+<div class="question-list">
+  <h2>Questions</h2>
+  <ul>
+    <li *ngFor="let question of questions">
+      {{ question?.question }}
+      <button class="btn btn-sm btn-primary" (click)="editQuestion(question)">
+        Edit
+      </button>
+      <button class="btn btn-sm btn-danger" (click)="deleteQuestion(question.id)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
+
+<button class="btn btn-success" (click)="newAdd()">New Question</button>
+
+<div class="question-form" *ngIf="isAddMode || isEditMode">
+  <h2>{{ isEditMode ? "Edit Question" : "Add Question" }}</h2>
+  <form (ngSubmit)="saveQuestion()">
+    <div class="form-group">
+      <label>Question:</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedQuestion.question" name="question" required>
+    </div>
+    <div class="form-group">
+      <label>Option 1:</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedQuestion.option1" name="option1" required>
+    </div>
+    <div class="form-group">
+      <label>Option 2:</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedQuestion.option2" name="option2" required>
+    </div>
+    <div class="form-group">
+      <label>Option 3:</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedQuestion.option3" name="option3" required>
+    </div>
+    <div class="form-group">
+      <label>Option 4:</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedQuestion.option4" name="option4" required>
+    </div>
+    <div class="form-group">
+      <label>Correct Option:</label>
+      <select class="form-control" [(ngModel)]="selectedQuestion.correctAnswer" name="correctOption" required>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+        <option value="option4">Option 4</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ isEditMode ? "Save" : "Add" }}</button>
+    <button type="button" class="btn btn-secondary">Cancel</button>
+  </form>
+</div>
+
+<button class="btn btn-success" (click)="addQuestion()">Add Question</button> -->
+
+<h1 class="mat-display-1 text-center">Admin Dashboard</h1>
+
+<div class="question-list">
+  <h2>Questions</h2>
+  <ul>
+    <li *ngFor="let question of questions" class="question-item">
+      {{ question?.question }}
+      <div class="button-group">
+        <button mat-raised-button color="primary" (click)="editQuestion(question)" [@fadeInOut]>
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteQuestion(question.id)" [@fadeInOut]>
+          Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<button mat-raised-button color="primary" class="add-question-button" (click)="newAdd()" [@fadeInOut]>New Question</button>
+
+
+<div class="question-form" *ngIf="isAddMode || isEditMode" [@fadeInOut]>
+  <h2>{{ isEditMode ? "Edit Question" : "Add Question" }}</h2>
+  <form (ngSubmit)="saveQuestion()">
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Question:</mat-label>
+        <input matInput [(ngModel)]="selectedQuestion.question" name="question" required>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Option 1:</mat-label>
+        <input matInput [(ngModel)]="selectedQuestion.option1" name="option1" required>
+      </mat-form-field>
+    </div>
+<!-- ...previous code... -->
+
+<div class="form-group">
+  <mat-form-field>
+    <mat-label>Option 2:</mat-label>
+    <input matInput [(ngModel)]="selectedQuestion.option2" name="option2" required>
+  </mat-form-field>
+</div>
+
+<div class="form-group">
+  <mat-form-field>
+    <mat-label>Option 3:</mat-label>
+    <input matInput [(ngModel)]="selectedQuestion.option3" name="option3" required>
+  </mat-form-field>
+</div>
+
+<div class="form-group">
+  <mat-form-field>
+    <mat-label>Option 4:</mat-label>
+    <input matInput [(ngModel)]="selectedQuestion.option4" name="option4" required>
+  </mat-form-field>
+</div>
+
+<div class="form-group">
+  <mat-form-field>
+    <mat-label>Correct Option:</mat-label>
+    <mat-select [(ngModel)]="selectedQuestion.correctAnswer" name="correctOption" required>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+      <mat-option value="option4">Option 4</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- ...remaining code... -->
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit">{{ isEditMode ? "Save" : "Add" }}</button>
+      <button mat-raised-button type="button" color="accent">Cancel</button>
+    </div>
+  </form>
+</div>

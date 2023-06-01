@@ -1,0 +1,64 @@
+/* Example styles to make the component more attractive */
+.question-list {
+  margin-top: 20px;
+}
+
+.question-item {
+  margin-bottom: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.add-question-button {
+  margin-top: 20px;
+}
+
+.question-form {
+  margin-top: 20px;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.question-form form {
+  margin-bottom: 0;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .question-list {
+    margin-bottom: 20px;
+  }
+  
+  .question-form {
+    width: 500px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
